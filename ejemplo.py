@@ -13,5 +13,6 @@ for carac in texto:
     if carac == 'e':
         cuenta += 1
 print ( "El", dato, "tiene ", cuenta, "letra e")
-print ("Capitalización: ", texto.upper())
-print ("La longitud de la cadena es de: ", len(dato))
+print ( "Capitalización: ", texto.upper())
+print ( "La longitud de la cadena es de: ", len(dato))
+print ( texto.replace('o','0'), 'Reeplazamos la letra o por el numero 0')
