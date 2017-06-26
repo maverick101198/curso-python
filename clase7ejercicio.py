@@ -1,18 +1,20 @@
+# coding=utf-8
+
 import argparse
 
 if __name__ == '__main__':
-	parser= argparse.ArgumentParser('val')
-	parser.add_argument('Nombre')
-	parser.add_argument('Edad')
-	parser.add_argument('Clase')
+    parser = argparse.ArgumentParser('val')
+    parser.add_argument('Nombre')
+    parser.add_argument('Edad')
+    parser.add_argument('Clase'
 
-	args = parser.parse_args()
+    args = parser.parse_args()
 
-	datos = {
-	'Nombre': args.Nombre,
-	'Edad': args.Edad,
-	'Clase': args.Clase
-	}
+    datos = {
+        'Nombre': args.Nombre,
+        'Edad': args.Edad,
+        'Clase': args.Clase
+    }
 
-	for llave,valor in datos.iteritems():
-	    print llave,valor
+    for llave, valor in datos.iteritems():
+        print llave, valor
