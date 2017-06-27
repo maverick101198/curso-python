@@ -3,16 +3,16 @@ import random
 mensaje= "el {0} de {1} de edad, es de la ciudad de {2} y cursa {3} en la universidad"
 NOMBRES = [
     'Ana',
-    'Pedro',
-    'Pablo',
-    'Ernesto',
+    'Tom',
+    'Alvaro',
+    'Roberto',
     'Ariel',
-    'Carlos',
-    'Luis',
-    'Oscar',
-    'Alicia',
+    'Rogelio',
+    'Maverick',
+    'Heyling',
     'Maria',
-    'Brenda'
+    'Joue',
+    'Giselle'
 ]
 
 CIUDADES = [
@@ -35,6 +35,7 @@ def generar_diccionario_estudiantes():
             'ciudad': random.choice(CIUDADES)
         }
     return estudiantes
+    print '\n'
 
 if __name__ == '__main__':
     diccio = generar_diccionario_estudiantes()
