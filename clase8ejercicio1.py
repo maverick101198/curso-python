@@ -16,12 +16,12 @@ NOMBRES = [
 ]
 
 CIUDADES = [
-    'Nicaragua',
-    'Silent Hill',
-    'Raccoon City',
-    'Alemania',
-    'Holanda',
-    'Zurbaran '
+    'Managua',
+    'Masaya',
+    'Matagalpa',
+    'Chinandega',
+    'Somoto',
+    ' Rivas'
 ]
 import random
 
@@ -46,15 +46,18 @@ if __name__ == '__main__':
     for llave,valor in diccio.iteritems():
         print mensaje.format(llave,valor['edad'],valor['ciudad'],valor['anio'])
     print '\n estudiantes de managua'
+
     for llave,valor in diccio.iteritems():
         if valor['ciudad'] == 'Managua':
             print mensaje.format(llave,valor['edad'],valor['ciudad'],valor['anio'])
     print '\n estudiantes de masaya que cursan 1er anio'
+
     for llave,valor in diccio.iteritems():
         if valor['ciudad'] == 'Masaya' and valor['anio'] == 1:
             print mensaje.format(llave, valor['edad'], valor['ciudad'], valor['anio'])
     print '\n estudiantes menores de 21'
+    
     for llave,valor in diccio.iteritems():
         if valor['edad']<21:
-            msj = '{0} de {1}, es de la ciudad de {2} y cursa {3} de la universidad'
+            msj = ' {0} de {1}, es de la ciudad de {2} y cursa {3} de la universidad'
             print msj.format(llave,valor['edad'],valor['ciudad'],valor['anio'])
