@@ -1,6 +1,6 @@
 
 import random
-mensaje= "el {0} de {1} de edad, es de la ciudad de {2} y cursa {3} en la universidad"
+mensaje= "{0} de {1} de edad, es de la ciudad de {2} y cursa {3} en la universidad"
 NOMBRES = [
     'Ana',
     'Tom',
@@ -16,12 +16,12 @@ NOMBRES = [
 ]
 
 CIUDADES = [
-    'Managua',
-    'Masaya',
-    'Matagalpa',
-    'Chinandega',
-    'Somoto',
-    'Rivas'
+    'Nicaragua',
+    'Silent Hill',
+    'Raccoon City',
+    'Alemania',
+    'Holanda',
+    'Zurbaran '
 ]
 import random
 
@@ -39,22 +39,22 @@ def generar_diccionario_estudiantes():
 
 if __name__ == '__main__':
     diccio = generar_diccionario_estudiantes()
- 
+  
     for llave,valor in diccio.iteritems() :
         print llave,valor
 
     for llave,valor in diccio.iteritems():
         print mensaje.format(llave,valor['edad'],valor['ciudad'],valor['anio'])
-    print 'estudiantes de managua'
+    print '\n estudiantes de managua'
     for llave,valor in diccio.iteritems():
         if valor['ciudad'] == 'Managua':
             print mensaje.format(llave,valor['edad'],valor['ciudad'],valor['anio'])
-    print 'estudiantes de masaya que cursan 1er anio'
+    print '\n estudiantes de masaya que cursan 1er anio'
     for llave,valor in diccio.iteritems():
         if valor['ciudad'] == 'Masaya' and valor['anio'] == 1:
             print mensaje.format(llave, valor['edad'], valor['ciudad'], valor['anio'])
-    print 'estudiantes menores de 21'
+    print '\n estudiantes menores de 21'
     for llave,valor in diccio.iteritems():
         if valor['edad']<21:
-            msj = 'el {0} de {1}, es de la ciudad de {2} y cursa {3} de la universidad'
-print msj.format(llave,valor['edad'],valor['ciudad'],valor['anio'])
+            msj = '{0} de {1}, es de la ciudad de {2} y cursa {3} de la universidad'
+            print msj.format(llave,valor['edad'],valor['ciudad'],valor['anio'])
