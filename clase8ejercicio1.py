@@ -56,8 +56,11 @@ if __name__ == '__main__':
         if valor['ciudad'] == 'Masaya' and valor['anio'] == 1:
             print mensaje.format(llave, valor['edad'], valor['ciudad'], valor['anio'])
     print '\n estudiantes menores de 21'
-    
+
     for llave,valor in diccio.iteritems():
         if valor['edad']<21:
             msj = ' {0} de {1}, es de la ciudad de {2} y cursa {3} de la universidad'
             print msj.format(llave,valor['edad'],valor['ciudad'],valor['anio'])
+            f = open('clase 8 ejercicio 1.txt', 'a')
+            f.write(mensaje.format(llave, valor['edad'], valor['ciudad'], valor['anio']))
+            f.close()
