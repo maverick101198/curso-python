@@ -1,46 +1,58 @@
-class Mascotas(object):
-    def __init__(self, nombre):
-        self.nombre = nombre 
+class Mascota(object):
 
-        def obtener_nombre(self):
-            print 'Dentro de la primera Clase'
-            return '{nombre}'.format(nombre=self.nombre)
-
-class Perro(Mascotas):
-    def __init__(self, nombrePerro):
-        self.nombrePerro = nombrePerro
-
+    def __init__(self,nombre, bebida = 'Leche' , comida = 'Croquetas'):
+        self.nombre = nombre
+        self.bebida = bebida
+        self.comida = comida
     def obtener_nombre(self):
-        return self.nombrePerro                
+        return self.nombre
+        
+    def obtener_bebida(self):
+        print 'Tienen de bebiba en comun:'
+        return self.bebida
+    
+    def obtener_comida(self):
+        print 'Tiene de Alimento en comun:'
+        return self.comida
 
-class Gato(Mascotas):
-    def __init__(self, nombreGato):
-        self.nombreGato = nombreGato
+class Perro(Mascota):
 
+    def __init__(self, raza, nombre):
+        super(Perro, self).__init__(nombre)
+        self.raza = raza
+        
+
+    def obtener_raza(self):
+        
+        return 'La raza de mi perro es: ' + self.raza
+    
     def obtener_nombre(self):
-        return self.nombreGato
+        
+        return 'El nombre de mi perro es: ' + self.nombre
+class Gato(Mascota):
 
-class Domesticos(Perro, Gato):
-    A = 'un Attributo'
+    def __init__(self, raza, nombre):
+        super(Gato, self).__init__(nombre)
+        self.raza = raza
+        
 
-    def __init__(self, tipo, semejanza):
-        super(Domesticos, self).__init__(semejanza)
-        self.tipo = tipo
+    def obtener_raza(self):
+        
+        return 'La raza de mi gato es: ' + self.raza
+    
+    def obtener_nombre(self):
+        
+        return 'El nombre de mi gato es: ' + self.nombre
 
-    def obtener_tipo(self):
-        return self.tipo
 
-    def obtener_semejanza(self):
-        print 'Metodo de mismo comportamiento'
-        semejanza = super(Domesticos, self).obtener_semejanza()
-        print semejanza
-        return semejanza        
 
 if __name__ == '__main__':
-    nombrePerro = Perro('krauser')
-    nombreGato = Gato('kuro') 
-    print nombrePerro.obtener_nombre()
-    print nombreGato.obtener_nombre()
-
-    mascota = Domesticos('Mascotas', 'Se Odian a muerte')
-print mascota.obtener_nombre()
+    p = Perro("Husky siberiano", "krauser")
+    c = Gato("Antano", "Kuro")
+    
+    print p.obtener_nombre()
+    print c.obtener_nombre()
+    print p.obtener_raza()
+    print c.obtener_raza()
+    print p.obtener_comida()
+print p.obtener_bebida()
