@@ -3,8 +3,13 @@
     <head>
         <title>Listas no ordenadas</title>
     </head>
+    <h1> {{encabezado}}</h1>
+    {% for d in docs %}
+        <div>{{d.nombre}}</div>
+    {% endfor %}
     <h1>Un poco de mi</h1>
     <body>
+    <p>Esto esta definido en base.html</p>
     <p>Cosas que generalmente hago</p>
     <ul>
                 <li>Salir</li>

@@ -9,4 +9,4 @@ class Documentos(models.Model):
 	fecha = models.DateTimeField(null = True, blank = True)
 
 	def __unicode__(self):
-		return 'Documento - {0}'.format(self.id)
+		return 'Documento - {0}'.format(self.nombre)
