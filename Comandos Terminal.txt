@@ -1,0 +1,160 @@
+PWD el contexto donde la terminal esta siendo ejecutado
+
+/home/fduser/curso-python/
+
+
+
+cd #cambiar de directorio, :
+
+cd .. #acepta argumentos q da ruta de los 
+
+cd #directorios al que desea cambiar
+
+
+
+ls: lista de lo que esta en esa ubicacion
+
+ls -l especificaciones de listados
+
+ls -la espicidaciones de listados de archivos ocultos
+
+
+
+mkdir curso crear una carpeta
+
+
+
+rm -rf 
+
+rm -rf/ cd ls
+
+
+
+touch para crear archivo
+
+touch ../archivo 1.txt
+
+
+
+pasos para instalar pychar:
+
+./bin/pycharm.sh
+
+
+
+pasos para clonar mi repositorio:
+
+git clone "URL del repositorio"
+
+git status
+
+git add archivo.txt
+
+git status
+
+git commit -m ''
+
+git push origin master 
+
+
+
+-. Para crear un ambiente virtual:
+
+sudo dnf install python-virtualenv
+
+mkdir python_web
+
+mkdir virtualenv
+
+virtualenv Ambiente_Virtuales
+
+virtualenv Ambiente_Virtuales/curso-python
+
+source Ambiente_Virtuales/curso-python/bin/activate
+
+-crear archivo "req.txt", despues abrimos el archivo en Sublime y ponemos:
+
+django == 1.11
+
+cat req.txt 
+
+pip install -r req.txt
+
+django-admin startproject proyecto_web
+
+cd proyecto_web
+
+python manage.py startapp documentos // ll
+
+python manage.py migrate
+
+python manage.py runserver 0.0.0.0:8080
+
+python manage.py createsuperuser
+
+udem
+
+Address: mtorrespavon56@gmail.com
+
+PassWord: fate1234
+
+python manage.py runserver 0.0.0.0:8080
+
+"
+
+localhost:8080/admin
+
+Username: udem
+
+Password: fate1234
+
+"
+
+-Para subir carpeta:
+
+deactivate
+
+vi .gitignore
+
+ll // ll -a
+
+.gitignore
+
+git status
+
+git add "nombre_carpeta"
+
+git status
+
+git commit -m ''
+
+git push origin master 
+
+
+
+- Para crear el ambiente virtual:
+
+# Instala en el system el pack of python-virtualenv
+
+sudo dnf install python-virtualenv
+
+
+
+# Crea un directory in home con name "Ambientes_Virtuales"
+
+# This directory va a alm. los archiv relacionadps con C/AmV q c cree
+
+mkdir ~/Ambientes_Virtuales
+
+
+
+# This command va a generar un AmV en el directory para
+
+virtualenv ~/Ambientes_Virtuales/curso-python
+
+source ~/Ambientes_Virtuales/curso-python/bin/activate
+
+
+
+GTK:
+
