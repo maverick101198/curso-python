@@ -1,85 +1,108 @@
 import gi
-
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
-class Mi_Ventana(Gtk.Window):
+class MiVentanita(Gtk.Window):
 	def __init__(self, *args, **kwargs):
-		
-		super(Mi_Ventana, self).__init__(*args, **kwargs)
-		self.set_size_request(700, 500)
+		super(MiVentanita, self).__init__(*args, **kwargs)
+		self.set_default_size(500, 300)
 		self.connect('delete-event', Gtk.main_quit)
+		self.add_contenedor()
+		self.add_entradaActivo()
+		self.add_entradaPasivo()
+		self.add_botonActivo()
+		self.add_botonPasivo()
+		self.add_listaActivo()
+		self.add_listaPasivo()
+		#self.add_labelA()
+		#self.add_labelP()
+		#self.add_labelC()
 
-		self.agregar_contenedor()
-		self.agregar_entrada()
-		self.agregar_entrada2()
-		self.agragar_boton()
-		self.agregar_bton2()
-		self.agregar_lista()
-		
-	def agregar_contenedor(self):
+	def add_contenedor(self):	
 		self.contenedor = Gtk.Grid()
 		self.contenedor.set_column_homogeneous(True)
 		self.add(self.contenedor)
-	def agregar_entrada(self):
-		self.entrada = Gtk.Entry()
-		self.contenedor.attach(self.entrada,0,0,3,1)
+
+	def add_entradaActivo(self):	
+		self.entradaActivo = Gtk.Entry()
+		#self.entrada1.connect('activate', self.add_filaA)
+		self.contenedor.attach(self.entradaActivo, 0, 0, 3, 1)
+		self.entrada1 = Gtk.Entry()
+		self.contenedor.attach(self.entrada1, 3, 0, 1, 1)
+
+	#def add_labelA(self):	
+		#self.labelA = 
+
+	def add_entradaPasivo(self):	
+		self.entradaPasivo = Gtk.Entry()
+		self.contenedor.attach(self.entradaPasivo, 0, 20, 3, 1)
 		self.entrada2 = Gtk.Entry()
-		self.contenedor.attach(self.entrada2,3,0,1,1)
-	def agregar_entrada2(self):
-		self.entrada = Gtk.Entry()
-		self.contenedor.attach(self.entrada,0,20,3,1)
-		self.entrada2 = Gtk.Entry()
-		self.contenedor.attach(self.entrada2,3,20,1,1)
-	def agragar_boton(self):
-		self.boton = Gtk.Button('activos')
-		self.contenedor.attach_next_to(
-			self.boton,
-			self.entrada,
+		self.contenedor.attach(self.entrada2, 3, 20, 1, 1)
+
+	def add_botonActivo(self):	
+		self.botonActivo = Gtk.Button('Activos')
+		self.contenedor.attach_next_to(self.botonActivo, self.entradaActivo,
 			Gtk.PositionType.BOTTOM,
-			4,
 			1,
-			)
-		self.boton.connect('clicked',self.agregar_fila)
-	def agregar_bton2(self):
-		self.boton = Gtk.Button('pasivos')
-		self.contenedor.attach_next_to(
-			self.boton,
-			self.entrada,
+			1)
+
+		self.botonActivo.connect('clicked', self.add_filaActivo)
+
+
+	def add_botonPasivo(self):	
+		self.botonPasivo = Gtk.Button('Pasivos')
+		self.contenedor.attach_next_to(self.botonPasivo, self.entradaPasivo,
 			Gtk.PositionType.BOTTOM,
-			4, 
-			4,
-			)
-		self.boton.connect('clicked',self.agregar_fila2)
-	def agregar_lista(self):
-		self.modelo = Gtk.ListStore(str,float)
-		self.lista_activos = Gtk.TreeView(self.modelo)
-  
-		descripcion = Gtk.CellRendererText()
-		columna_descripcion =  Gtk.TreeViewColumn('descripcion',descripcion,text=0)
-		monto = Gtk.CellRendererText()
-		columna_monto =  Gtk.TreeViewColumn('Monto',monto,text=1)
+			1,
+			2)
 
-		self.lista_activos.append_column(columna_descripcion)
-		self.lista_activos.append_column(columna_monto)
+		self.botonPasivo.connect('clicked', self.add_filaPasivo)
 
-		self.contenedor.attach_next_to(
-			self.lista_activos,
-			self.boton,
+	def add_listaActivo(self):	
+		self.modeloActivo = Gtk.ListStore(str, float)
+		self.lista_Activo = Gtk.TreeView(self.modeloActivo)
+
+		descripcionActivo = Gtk.CellRendererText()
+		columna_descripcionActivo = Gtk.TreeViewColumn('Descripcion_Activo', descripcionActivo, text=0)
+		montoActivo = Gtk.CellRendererText()
+		columna_montoActivo = Gtk.TreeViewColumn('Monto_Activo', montoActivo, text=1)
+
+		self.lista_Activo.append_column(columna_descripcionActivo)
+		self.lista_Activo.append_column(columna_montoActivo)
+
+		self.contenedor.attach_next_to(self.lista_Activo, self.botonActivo,
 			Gtk.PositionType.BOTTOM,
-			4,
-			1
-			)
+			1,
+			1)
 
-	def agregar_fila(self,btn):
-		texto = self.entrada.get_text()
-		num = self.entrada2.get_text()
-		self.modelo.append([texto,float(num)])
-	def agregar_fila2(self,btn):
-		texto = self.entrada.get_text()
-		num = self.entrada2.get_text()
-		self.modelo.append([texto,float(num)])
-if __name__ == '__main__':
-	ventana = Mi_Ventana()
+	def add_listaPasivo(self):	
+		self.modeloPasivo = Gtk.ListStore(str, float)
+		self.lista_Pasivo = Gtk.TreeView(self.modeloPasivo)
+
+		descripcionPasivo = Gtk.CellRendererText()
+		columna_descripcionPasivo = Gtk.TreeViewColumn('Descripcion_Pasivo', descripcionPasivo, text=0)
+		montoPasivo = Gtk.CellRendererText()
+		columna_montoPasivo = Gtk.TreeViewColumn('Monto_Pasivo', montoPasivo, text=1)
+
+		self.lista_Pasivo.append_column(columna_descripcionPasivo)
+		self.lista_Pasivo.append_column(columna_montoPasivo)
+
+		self.contenedor.attach_next_to(self.lista_Pasivo, self.botonPasivo,
+			Gtk.PositionType.BOTTOM,
+			1,
+			1)
+
+	def add_filaActivo(self, btn):	
+		textoActivo = self.entradaActivo.get_text()
+		numeroActivo = self.entrada1.get_text()
+		self.modeloActivo.append([textoActivo, float(numeroActivo)])
+
+	def add_filaPasivo(self, btn):		
+		textoPasivo = self.entradaPasivo.get_text()
+		numeroPasivo = self.entrada2.get_text()
+		self.modeloPasivo.append([textoPasivo, float(numeroPasivo)])
+
+if __name__ == '__main__':		
+	ventana = MiVentanita()
 	ventana.show_all()
 Gtk.main()
