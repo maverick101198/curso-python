@@ -2,11 +2,11 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
-class MiVentanita(Gtk.Window):
+class MiVentanita(Gtk.ApplicationWindow):
 	def __init__(self, *args, **kwargs):
 		super(MiVentanita, self).__init__(*args, **kwargs)
 		self.set_default_size(500, 300)
-		self.connect('delete-event', Gtk.main_quit)
+		#self.connect('delete-event', Gtk.main_quit)
 		self.add_contenedor()
 		self.add_entradaActivo()
 		self.add_entradaPasivo()
@@ -14,9 +14,6 @@ class MiVentanita(Gtk.Window):
 		self.add_botonPasivo()
 		self.add_listaActivo()
 		self.add_listaPasivo()
-		#self.add_labelActivo()
-		#self.add_labelPasivo()
-		#self.add_labelC()
 
 	def add_contenedor(self):	
 		self.contenedor = Gtk.Grid()
@@ -25,13 +22,9 @@ class MiVentanita(Gtk.Window):
 
 	def add_entradaActivo(self):	
 		self.entradaActivo = Gtk.Entry()
-		#self.entrada1.connect('activate', self.add_filaA)
 		self.contenedor.attach(self.entradaActivo, 0, 0, 3, 1)
 		self.entrada1 = Gtk.Entry()
 		self.contenedor.attach(self.entrada1, 3, 0, 1, 1)
-
-	#def add_labelA(self):	
-		#self.labelA = 
 
 	def add_entradaPasivo(self):	
 		self.entradaPasivo = Gtk.Entry()
@@ -105,4 +98,3 @@ class MiVentanita(Gtk.Window):
 if __name__ == '__main__':		
 	ventana = MiVentanita()
 	ventana.show_all()
-Gtk.main()
