@@ -98,3 +98,4 @@ class MiVentanita(Gtk.ApplicationWindow):
 if __name__ == '__main__':		
 	ventana = MiVentanita()
 	ventana.show_all()
+	Gtk.main()
